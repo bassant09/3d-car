@@ -38,10 +38,10 @@ export class World {
   constructor() {
     this.setUpWorld();
     this.createColorCointaner();
-    selectBtn?.addEventListener("click", () => {
-      this.focusModel();
-      this.changeCarColor();
-    });
+    // selectBtn?.addEventListener("click", () => {
+    //   this.focusModel();
+    //   this.changeCarColor();
+    // });
   }
   setUpWorld() {
     this.renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -68,6 +68,11 @@ export class World {
     this.camera.position.copy(this.mainCameraPostion);
     this.orbitCamera = new OrbitControls(this.camera, this.renderer.domElement);
     this.orbitCamera.update();
+    this.orbitCamera.enabled=false
+  }
+  toggleOrbitMove(){
+    this.orbitCamera.enabled=!this.orbitCamera.enabled
+
   }
   changeCameraPos() {}
   setupSceneLights() {
@@ -189,6 +194,7 @@ export class World {
     const outputPass = new OutputPass();
     this.composer.addPass(outputPass);
   }
+  
   changeCarColor() {
     gsap.to(".cars-cointaner", {
       y: "-50%",
@@ -260,4 +266,5 @@ export class World {
       duration: 1,
     });
   }
+ 
 }

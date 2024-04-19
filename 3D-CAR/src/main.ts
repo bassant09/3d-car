@@ -106,6 +106,9 @@ const carDetails: CarInfo[] = [
 ];
 const world = new World();
 let chosenModel: Car;
+const optionsBody = document.querySelector(".options") as HTMLElement;
+const selectBtn = document.querySelector(".select-btn");
+
 // const carDetails: IScene[] = [  new HorrorSence(world),new GalaxySence(world)];
 // carDetails[0].buildScene();
 // world.onSelectColor.subscribe((color) => {
@@ -136,6 +139,14 @@ function addCarsName() {
     chosenModel = carModels[0];
 
     carNameElement.addEventListener("click", () => {
+    debugger;
+      if(animation) return
+      animation=true
+      const selectedCars= document.querySelectorAll('.p-selected')
+      selectedCars.forEach(car=>{
+        car.classList.remove('p-selected')
+      })
+      carNameElement.classList.add('p-selected')
       if (curIndex == index) return;
       //changeCar(curIndex,index)
       gsap.to(world.camera.position, {
@@ -161,7 +172,10 @@ function addCarsName() {
         onComplete: () => {
           carModels[prevIndex].model.visible = false;
         },
-      });
+      } 
+     
+     
+    );
       //  carModels[curIndex].model.visible=false
       curIndex = index;
       carModels[curIndex].model.visible = true;
@@ -180,47 +194,202 @@ function addCarsName() {
         },
         { z: 0, duration: 4, ease: "circ.out" }
       );
+      setTimeout(()=>{
+        animation=false  
+      },5000) 
     });
-    if (carContainer) carContainer.appendChild(carNameElement);
+    if (carContainer) carContainer.appendChild(carNameElement); 
+   
   });
 }
+var animation :boolean = false
+
 function carContainerAnimation() {
-  gsap.from(".cars-cointaner", {
+  if(animation) return;
+  animation=true
+  gsap.fromTo(".cars-cointaner", {
     x: "50%",
+    y:0,
     opacity: 0,
     duration: 1.5,
     ease: "power2.out",
+  },{
+    opacity:1,
+    x:0,
+    y:0
   });
   gsap.to(".line-horizontal", {
     width: "300px",
+    opacity:1,
     duration: 1.5,
     ease: "power2.out",
   });
   gsap.to(".line-vertical", {
     height: "200px",
+    opacity:1,
     duration: 1.5,
     ease: "power2.out",
   });
-  gsap.from(".left-arrow", {
+  gsap.fromTo(".left-arrow", {
     x: "200%",
     opacity: 0,
     duration: 1.5,
     ease: "power2.out",
+  },{
+    opacity:1,
+    x:0,
+    y:0
   });
-  gsap.from(".right-arrow", {
+  gsap.fromTo(".right-arrow", {
     x: "-200%",
     opacity: 0,
     duration: 1.5,
     ease: "power2.out",
+  },{
+    opacity:1,
+    x:0,
+    y:0
   });
-  gsap.from(".select-btn", {
+  gsap.fromTo(".select-btn", {
     y: "100%",
     opacity: 0,
     duration: 1.5,
     ease: "power2.out",
+  },{
+    opacity:1,
+    x:0,
+    y:0
   });
-  gsap.from("h1", { y: "100%", opacity: 0, duration: 1.5, ease: "power2.out" });
+  gsap.fromTo("h1", { y: "100%", opacity: 0, duration: 1.5, ease: "power2.out" },{
+    opacity:1,
+    x:0,
+    y:0
+  });
+  gsap.fromTo("h1", { y: "100%", opacity: 0, duration: 1.5, ease: "power2.out" },{
+    opacity:1,
+    x:0,
+    y:0
+  });
+  gsap.to(".color-body", {
+    y: "-100%",
+    opacity: 0,
+    duration: 0.3,
+    ease: "power2.out",
+  });
+    gsap.to(".options", {
+      y: "-100%",
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+    gsap.fromTo(".hero-details ",{
+   opacity:0,
+   x:"20%",
+   duration:1,
+   ease: "power2.out",
+    },{opacity:1,x:0,y:0})
+    gsap.from(".car-hero",{
+      opacity:0,
+      duration:1,
+      ease: "power2.out",
+      delay:1,
+      stagger:0.3,
+      x:"20%",
+       }) 
+       gsap.to(".car-details",{
+        opacity:0
+ } )
+   setTimeout(()=>{
+    animation=false
+   },1000) 
+    if (optionsBody) {
+      optionsBody.style.visibility = "hidden";
+    }
+} 
+function focusModel() {
+  gsap.to(world.camera.position, {
+    x: 8,
+    y: 1,
+    z: 8,
+    duration: 2,
+    onUpdate: () => {
+      world.camera.lookAt(new THREE.Vector3(0, 0, 0));
+    },
+  });
 }
+function changeCarColor() {
+  debugger;
+  if(animation) return
+  animation=true
+  gsap.to(".cars-cointaner", {
+    y: "-50%",
+    opacity: 0,
+    duration: 0.5,
+    ease: "power2.out",
+  });
+  gsap.to(".line-horizontal", {
+    width: "0px",
+    duration: 0.5,
+    opacity: 0,
+    ease: "power2.out",
+  });
+  gsap.to(".left-arrow", {
+    x: "-200%",
+    duration: 0.5,
+    opacity: 0,
+    ease: "power2.out",
+  });
+  gsap.to(".right-arrow", {
+    x: "200%",
+    duration: 0.5,
+    opacity: 0,
+    ease: "power2.out",
+  });
+  gsap.to(".line-vertical", {
+    height: "0px",
+    duration: 0.5,
+    opacity: 0,
+    ease: "power2.out",
+  });
+  gsap.to("h1", { y: "-50%", opacity: 0, duration: 0.5, ease: "power2.out" });
+  gsap.to(".select-btn", { opacity: 0, duration: 0.5, ease: "power2.out" });
+  gsap.to(".color-body", {
+    y: "100%",
+    opacity: 1,
+    duration: 1,
+    ease: "power2.out",
+  });
+  if (optionsBody) {
+    optionsBody.style.visibility = "visible";
+    gsap.from(".options", {
+      y: "100%",
+      opacity: 1,
+      duration: 0.5,
+      ease: "power2.out",
+    });
+  }
+  gsap.to(".hero-details ",{
+    opacity:0,
+    x:"20%",
+    duration:1,
+    ease: "power2.out",
+     })
+     gsap.fromTo(".car-details ",{
+      opacity:0,
+      x:"30%",
+      duration:1,
+      ease: "power2.out",
+       } ,{
+        opacity:1,
+        x:"0%",
+        duration:1,
+        ease: "power2.out",
+       })
+  setTimeout(()=>{
+    animation=false
+   },1000) 
+}
+
 function ArrowClick() {
   const leftArrow = document.querySelector(".left-arrow");
   const rightArrow = document.querySelector(".right-arrow");
@@ -282,8 +451,33 @@ function changeCar(movement: number) {
     { z: 0, duration: 4, ease: "circ.out" }
   );
 }
+const orbitBtn=document.querySelector('.orbit-container');
+orbitBtn?.addEventListener("click",()=>{
+  world.toggleOrbitMove()
+})
+const doneBtn=document.querySelector('.done-btn');
+doneBtn?.addEventListener("click",()=>{
+  unFocusModel()
+  carContainerAnimation();
 
+
+})
+function unFocusModel(){
+  gsap.to(world.camera.position, {
+    x: world.mainCameraPostion.x,
+    y: world.mainCameraPostion.y,
+    z: world.mainCameraPostion.z,
+    duration: 2,
+    onUpdate: () => {
+      world.camera.lookAt(new THREE.Vector3(0, 0, 0));
+    },
+  });
+}
 addCarsName();
 carContainerAnimation();
 ArrowClick();
+selectBtn?.addEventListener("click", () => {
+  focusModel();
+  changeCarColor();
+});
 // world.LoadSence('horor-scene.glb')
