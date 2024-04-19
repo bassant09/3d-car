@@ -46,7 +46,7 @@ this._world.scene.remove(object)
       });
     });
      this.chosenCar=new Car(this.carDetails,this._world.scene,0)
-   this.chosenCar.loadModel().then(e=>{
+   this.chosenCar.loadModel().then(()=>{
     this.objects.push(this.chosenCar.model)
 
    })

@@ -10,7 +10,6 @@ import {
 import { EventDispatcher } from "./utilits/event-handler";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
-const selectBtn = document.querySelector(".select-btn");
 const colorBody = document.querySelector(".color-body");
 const optionsBody = document.querySelector(".options") as HTMLElement;
 

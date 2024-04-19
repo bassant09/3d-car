@@ -1,15 +1,8 @@
 import "./style.scss";
 import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/Addons.js";
-import { OrbitControls } from "three/examples/jsm/Addons.js";
 import { World } from "./scripts/world";
 import { Car } from "./scripts/car";
 import { CarInfo } from "./models/car";
-import { color } from "three/examples/jsm/nodes/Nodes.js";
-import { IScene } from "./interfaces/IScene";
-import { HorrorSence } from "./scripts/scences/horror-sence";
-import { GalaxySence } from "./scripts/scences/galaxy-sence";
-import { CuteSence } from "./scripts/scences/cute-sence";
 import gsap from "gsap";
 
 // import typescriptLogo from './typescript.svg'
