@@ -201,8 +201,8 @@ width: 50%;
 }
 .hero-details{
   position: absolute;
-  right: 3%;
-  width: 350px;
+  right: 1%;
+  width: 340px;
   background: rgba( 0, 0, 0, 0.1 );
 box-shadow: 0 0px 16px  #b3393b;
 backdrop-filter: blur( 4px );
@@ -212,7 +212,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 h2{
   color: rgb(220, 220, 220);
-  font-size: 22px;
+  font-size: 20px;
   line-height: 30px;
 
 }
@@ -237,4 +237,12 @@ border-radius: 10px;
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 opacity: 0;
 
+}
+@media screen and (max-width:1300px) {
+  .hero-details{
+    display: none !important;
+  }
+  h1{
+    font-size: 35px;
+  }
 }

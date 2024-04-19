@@ -16,7 +16,7 @@ const optionsBody = document.querySelector(".options") as HTMLElement;
 export class World {
   renderer!: THREE.WebGLRenderer;
   scene!: THREE.Scene;
-  camera!: THREE.Camera;
+  camera!: THREE.PerspectiveCamera;
   orbitCamera!: OrbitControls;
   renderScene!: RenderPass;
   composer!: EffectComposer;
@@ -56,6 +56,7 @@ export class World {
     this.setUpFog();
     this.setupPostProcessing();
     this.animate();
+    this.resize()
   }
   setUpCamera() {
     this.camera = new THREE.PerspectiveCamera(
@@ -139,6 +140,13 @@ export class World {
     this.renderer.render(this.scene, this.camera);
     this.composer.render();
     requestAnimationFrame(() => this.animate());
+  }
+  resize(){
+    window.addEventListener('resize', ()=> {
+      this.camera.aspect = window.innerWidth / window.innerHeight;
+      this.camera.updateProjectionMatrix();
+      this.renderer.setSize(window.innerWidth, window.innerHeight);
+  });
   }
   focusModel() {
     gsap.to(this.camera.position, {
