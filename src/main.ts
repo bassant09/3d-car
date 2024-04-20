@@ -94,12 +94,17 @@ function addCarsName() {
         delay: 4,
       });
       let prevIndex = curIndex;
-      animationController.gsapAnimationToWithComplete(
+      animationController.gsapAnimationTo(
         carModels[prevIndex].model.position,
-        50,
-        4,
-        carModels[prevIndex].model.visible,
-        false
+        {
+          z:50,
+          duration:4,
+          ease: "circ.in",
+          onComplete: () => {
+            carModels[prevIndex].model.visible=false
+          },
+        }
+      
       );
       curIndex = index;
       carModels[curIndex].model.visible = true;
