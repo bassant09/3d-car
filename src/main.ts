@@ -96,6 +96,14 @@ const carDetails: CarInfo[] = [
     description:'An American icon of performance. With sleek lines, a powerful engine, and precision engineering, it delivers an exhilarating driving experience. From the track to the open road, it commands attention and thrills at every turn. Unleash the legend.'
   },
   {
+    name: "Chevrolet Corvette C8",
+    modelPath: "chevrolet_corvett_c8.gltf",
+    positionY: 0,
+    rotation: new Euler(0, Math.PI, 0),
+    colorParts:['Object_181'],
+    description:'Redefining performance with sleek design, powerful engine, and advanced tech. From aggressive stance to refined interior, it delivers unmatched thrills on road or track. Unleash the legend'
+  },
+  {
     name: "BMW",
     modelPath: "bmw_m4_csl_2023 (1).glb",
     positionY: 0,
@@ -104,14 +112,7 @@ const carDetails: CarInfo[] = [
     description:'Experience driving exhilaration with BMW, where luxury meets performance seamlessly. From its iconic design to its cutting-edge technology, every BMW car embodies precision engineering and driving pleasure. Whether navigating city streets or conquering winding roads, BMW delivers an unmatched driving experience that elevates every journey.'
 
   },
-  {
-    name: "Chevrolet Corvette C8",
-    modelPath: "chevrolet_corvett_c8.gltf",
-    positionY: 0,
-    rotation: new Euler(0, Math.PI, 0),
-    colorParts:['Object_181'],
-    description:'Redefining performance with sleek design, powerful engine, and advanced tech. From aggressive stance to refined interior, it delivers unmatched thrills on road or track. Unleash the legend'
-  },
+  
 ];
 const world = new World();
 let chosenModel: Car;
@@ -472,7 +473,8 @@ function changeCar(movement: number) {
 }
 const orbitBtn=document.querySelector('.orbit-container');
 orbitBtn?.addEventListener("click",()=>{
-  world.toggleOrbitMove()
+  world.toggleOrbitMove();
+  // document.body.style.cursor='move'
 })
 const doneBtn=document.querySelector('.done-btn');
 doneBtn?.addEventListener("click",()=>{

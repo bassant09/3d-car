@@ -32,6 +32,7 @@ body {
   overflow: hidden;
 }
 
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -178,6 +179,7 @@ width: 50%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+
  
 }
 .done-btn{
@@ -194,6 +196,13 @@ width: 50%;
   scale: 1.1;
 }
 .orbit-container:hover{
+  .icon{
+    color: #000 !important;
+  }
+  background-color: white;
+  scale: 1.1;
+}
+.orbit-container-hover{
   .icon{
     color: #000 !important;
   }
@@ -240,4 +249,6 @@ opacity: 0;
 
 }
 
-
+.drag-note{
+  font-size: 30px;
+}

@@ -12,6 +12,7 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const colorBody = document.querySelector(".color-body");
 const optionsBody = document.querySelector(".options") as HTMLElement;
+const orbitBtn=document.querySelector('.orbit-container') as HTMLElement;
 
 export class World {
   renderer!: THREE.WebGLRenderer;
@@ -72,7 +73,11 @@ export class World {
   }
   toggleOrbitMove(){
     this.orbitCamera.enabled=!this.orbitCamera.enabled
-
+   if(this.orbitCamera.enabled){ document.body.style.cursor='move'; 
+    
+   }
+   else  document.body.style.cursor='auto'
+   orbitBtn.classList.toggle('orbit-container-hover')
   }
   changeCameraPos() {}
   setupSceneLights() {
