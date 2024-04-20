@@ -4,6 +4,7 @@ import { World } from "./scripts/world";
 import { Car } from "./scripts/car";
 import { CarInfo } from "./models/car";
 import gsap from "gsap";
+import { Euler } from "three";
 
 // import typescriptLogo from './typescript.svg'
 // import viteLogo from '/vite.svg'
@@ -90,17 +91,36 @@ const carDetails: CarInfo[] = [
     name: "Chevrolet Corvette C7",
     modelPath: "mclaren_f1_1993_nfs2_edition_by_alex.ka..glb",
     positionY: 0,
+    rotation: new Euler(0, 0, 0),
+    colorParts:['Object_7'],
+    description:'An American icon of performance. With sleek lines, a powerful engine, and precision engineering, it delivers an exhilarating driving experience. From the track to the open road, it commands attention and thrills at every turn. Unleash the legend.'
   },
   {
     name: "BMW",
     modelPath: "bmw_m4_csl_2023 (1).glb",
     positionY: 0,
+    rotation: new Euler(0, 0, 0),
+    colorParts:['Object_181'],
+    description:'Experience driving exhilaration with BMW, where luxury meets performance seamlessly. From its iconic design to its cutting-edge technology, every BMW car embodies precision engineering and driving pleasure. Whether navigating city streets or conquering winding roads, BMW delivers an unmatched driving experience that elevates every journey.'
+
+  },
+  {
+    name: "Chevrolet Corvette C8",
+    modelPath: "chevrolet_corvett_c8.gltf",
+    positionY: 0,
+    rotation: new Euler(0, Math.PI, 0),
+    colorParts:['Object_181'],
+    description:'Redefining performance with sleek design, powerful engine, and advanced tech. From aggressive stance to refined interior, it delivers unmatched thrills on road or track. Unleash the legend'
   },
 ];
 const world = new World();
 let chosenModel: Car;
 const optionsBody = document.querySelector(".options") as HTMLElement;
-const selectBtn = document.querySelector(".select-btn");
+const selectBtn = document.querySelector(".select-btn"); 
+const carName= document.querySelector('h1')
+const carDescription= document.querySelector('.car-description-data ')
+const carNameDesc= document.querySelector('.car-name')
+
 
 // const carDetails: IScene[] = [  new HorrorSence(world),new GalaxySence(world)];
 // carDetails[0].buildScene();
@@ -121,6 +141,7 @@ function addCarsName() {
   const carContainer = document.querySelector(".cars-cointaner");
   carDetails.forEach((car, index) => {
     const carNameElement = document.createElement("p");
+    if(index==0) carNameElement.classList.add('p-selected')
     carNameElement.textContent = car.name;
     const carModel = new Car(car, world.scene, car.positionY);
     carModel.loadModel(() => {
@@ -130,9 +151,10 @@ function addCarsName() {
     });
     carModels.push(carModel);
     chosenModel = carModels[0];
+    setChosenCarData(chosenModel)
 
+    if(carNameDesc) carNameDesc
     carNameElement.addEventListener("click", () => {
-    debugger;
       if(animation) return
       animation=true
       const selectedCars= document.querySelectorAll('.p-selected')
@@ -173,7 +195,7 @@ function addCarsName() {
       curIndex = index;
       carModels[curIndex].model.visible = true;
       chosenModel = carModels[curIndex];
-      debugger;
+      setChosenCarData(chosenModel)
 
       gsap.fromTo(
         carModels[curIndex].model.position,
@@ -344,6 +366,7 @@ function changeCarColor() {
     opacity: 0,
     ease: "power2.out",
   });
+   
   gsap.to("h1", { y: "-50%", opacity: 0, duration: 0.5, ease: "power2.out" });
   gsap.to(".select-btn", { opacity: 0, duration: 0.5, ease: "power2.out" });
   gsap.to(".color-body", {
@@ -377,7 +400,10 @@ function changeCarColor() {
         x:"0%",
         duration:1,
         ease: "power2.out",
-       })
+       } 
+      
+      )
+     
   setTimeout(()=>{
     animation=false
    },1000) 
@@ -465,6 +491,13 @@ function unFocusModel(){
       world.camera.lookAt(new THREE.Vector3(0, 0, 0));
     },
   });
+}
+function setChosenCarData(car:Car){
+  if(carName) carName.textContent=car._carDetail.name
+  if(carNameDesc) carNameDesc.textContent=car._carDetail.name
+  if(carDescription) carDescription.textContent=car._carDetail.description
+
+
 }
 addCarsName();
 carContainerAnimation();

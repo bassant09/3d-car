@@ -1,7 +1,7 @@
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { IScene } from "../../interfaces/IScene";
 import { World } from "../world";
-import { Mesh } from "three";
+import { Euler, Mesh } from "three";
 import { CarInfo } from "../../models/car";
 import { Car } from "../car";
 import * as THREE from 'three';
@@ -12,7 +12,12 @@ export class HorrorSence implements IScene {
   readonly carDetails: CarInfo = {
     name: "Chevrolet Corvette C7",
     modelPath: "mclaren_f1_1993_nfs2_edition_by_alex.ka..glb",
-    positionY:0
+    positionY:0,
+   rotation: new Euler(0, -Math.PI / 2, 0),
+   colorParts:['Object_181'],
+   description:'jjdji'
+
+
   };
   objects:THREE.Object3D[]=[]
   constructor(private _world: World) {}

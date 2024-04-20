@@ -17,6 +17,7 @@ export class Car {
     gltf.scene.scale.set(1.5, 1.5, 1.5);
     //   gltf.scene.receiveShadow = true;
     gltf.scene.position.set(0,-2,this._postionY)
+    gltf.scene.rotation.copy(this._carDetail.rotation)
     gltf.scene.castShadow = true;
     this._scene.add(gltf.scene);
     gltf.scene.traverse((child) => {
@@ -31,7 +32,7 @@ export class Car {
   const newColor=new THREE.Color(color)  
     this.model.traverse((child) => {
         if (child instanceof THREE.Mesh) {
-            if(child.name=='Object_7'){
+            if(child.name==this._carDetail.colorParts[0]){
               gsap.to(this.backgroundColor,{
                 r: newColor.r * 0.1,
                 g: newColor.g * 0.1,
