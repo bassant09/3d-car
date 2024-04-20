@@ -39,8 +39,7 @@ const carDetails: CarInfo[] = [
     positionY: 0,
     rotation: new Euler(0, 0, 0),
     colorParts: ["Object_181"],
-    description:
-      "Experience driving exhilaration with BMW, where luxury meets performance seamlessly. From its iconic design to its cutting-edge technology, every BMW car embodies precision engineering and driving pleasure. Whether navigating city streets or conquering winding roads, BMW delivers an unmatched driving experience that elevates every journey.",
+    description:"Where luxury meets performance, creating exhilarating driving experiences. With iconic design and cutting-edge technology, BMW delivers precision engineering and driving pleasure. Elevating every journey, whether city streets or winding roads"
   },
 ];
 var animation: boolean = false;
