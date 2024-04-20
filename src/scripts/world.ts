@@ -12,7 +12,7 @@ import { GLTFLoader } from "three/examples/jsm/Addons.js";
 
 const colorBody = document.querySelector(".color-body");
 const optionsBody = document.querySelector(".options") as HTMLElement;
-const orbitBtn=document.querySelector('.orbit-container') as HTMLElement;
+const orbitBtn = document.querySelector(".orbit-container") as HTMLElement;
 
 export class World {
   renderer!: THREE.WebGLRenderer;
@@ -57,7 +57,7 @@ export class World {
     this.setUpFog();
     this.setupPostProcessing();
     this.animate();
-    this.resize()
+    this.resize();
   }
   setUpCamera() {
     this.camera = new THREE.PerspectiveCamera(
@@ -69,15 +69,14 @@ export class World {
     this.camera.position.copy(this.mainCameraPostion);
     this.orbitCamera = new OrbitControls(this.camera, this.renderer.domElement);
     this.orbitCamera.update();
-    this.orbitCamera.enabled=false
+    this.orbitCamera.enabled = false;
   }
-  toggleOrbitMove(){
-    this.orbitCamera.enabled=!this.orbitCamera.enabled
-   if(this.orbitCamera.enabled){ document.body.style.cursor='move'; 
-    
-   }
-   else  document.body.style.cursor='auto'
-   orbitBtn.classList.toggle('orbit-container-hover')
+  toggleOrbitMove() {
+    this.orbitCamera.enabled = !this.orbitCamera.enabled;
+    if (this.orbitCamera.enabled) {
+      document.body.style.cursor = "move";
+    } else document.body.style.cursor = "auto";
+    orbitBtn.classList.toggle("orbit-container-hover");
   }
   changeCameraPos() {}
   setupSceneLights() {
@@ -146,12 +145,12 @@ export class World {
     this.composer.render();
     requestAnimationFrame(() => this.animate());
   }
-  resize(){
-    window.addEventListener('resize', ()=> {
+  resize() {
+    window.addEventListener("resize", () => {
       this.camera.aspect = window.innerWidth / window.innerHeight;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(window.innerWidth, window.innerHeight);
-  });
+    });
   }
   focusModel() {
     gsap.to(this.camera.position, {
@@ -206,7 +205,7 @@ export class World {
     const outputPass = new OutputPass();
     this.composer.addPass(outputPass);
   }
-  
+
   changeCarColor() {
     gsap.to(".cars-cointaner", {
       y: "-50%",
@@ -278,5 +277,4 @@ export class World {
       duration: 1,
     });
   }
- 
 }

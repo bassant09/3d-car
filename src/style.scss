@@ -32,7 +32,6 @@ body {
   overflow: hidden;
 }
 
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -67,7 +66,6 @@ h1 {
   color: #888;
 }
 
-
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -76,21 +74,20 @@ h1 {
   a:hover {
     color: #747bff;
   }
- 
 }
-.color-coinatier{
+.color-coinatier {
   width: 32px;
   height: 32px;
   border-radius: 1px;
   cursor: pointer;
 }
-.cars-cointaner{
+.cars-cointaner {
   position: absolute;
   left: 50px;
   top: 5%;
   z-index: 3;
 }
-p{
+p {
   font-size: 18px;
   font-weight: 600;
   color: white;
@@ -99,78 +96,71 @@ p{
   margin: 0;
   margin-top: 5px;
   margin-bottom: 5px;
-
 }
-p:hover{
-  background-color: #b3393b;
-  border-radius: 2px;
- 
-  
-}
-.p-selected{
+p:hover {
   background-color: #b3393b;
   border-radius: 2px;
 }
-h1{
+.p-selected {
+  background-color: #b3393b;
+  border-radius: 2px;
+}
+h1 {
   font-family: "Alfa Slab One", serif;
-color:rgb(180, 180, 180);
-font-size: 40px;
+  color: rgb(180, 180, 180);
+  font-size: 40px;
 }
-.header{
+.header {
   position: absolute;
-  left: 50%; 
-  top:25%;
-  transform: translate(-50%,-50%);
+  left: 50%;
+  top: 25%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.select-btn{
-  width: 130px; 
-  color: white !important; 
+.select-btn {
+  width: 130px;
+  color: white !important;
   font-size: 16px;
-   border: 1.5px solid #3f3e3e
-   !important;
-   border-radius: 2px;
-   background-color: #b3393b;
-
-}
-.select-btn:hover{
+  border: 1.5px solid #3f3e3e !important;
+  border-radius: 2px;
   background-color: #b3393b;
 }
-.arrow{
+.select-btn:hover {
+  background-color: #b3393b;
+}
+.arrow {
   width: 50px;
   height: 50px;
-  border: 1.5px solid #3f3e3e
-   !important;
-   border-radius: 2px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   cursor: pointer;
+  border: 1.5px solid #3f3e3e !important;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
-*{
+* {
   font-family: "Poppins", sans-serif;
-
 }
-.color-body{
-opacity: 0;  
-position: absolute;
-left: 50%;
-top: 10%;
-transform: translate(-50%,-50%);
-border: 1px white solid;
+.color-body {
+  opacity: 0;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+  border: 1px white solid;
   border-radius: 2px;
 }
-.options{
+.options {
   position: absolute;
   bottom: 10%;
-  left:25%;
-visibility: hidden;
-width: 50%;
+  left: 25%;
+  visibility: hidden;
+  width: 50%;
 }
-.orbit-container{
+.orbit-container {
   width: 65px;
   height: 55px;
   border-radius: 2px;
@@ -179,76 +169,75 @@ width: 50%;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-
- 
 }
-.done-btn{
+.done-btn {
   background-color: #b3393b;
   border-radius: 2px;
- float: right;
- width: 130px;
- color: white;
- outline: none;
- border: none;
- font-size: 20px;
+  float: right;
+  width: 130px;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 20px;
 }
-.done-btn:hover{
+.done-btn:hover {
   scale: 1.1;
 }
-.orbit-container:hover{
-  .icon{
+.orbit-container:hover {
+  .icon {
     color: #000 !important;
   }
   background-color: white;
   scale: 1.1;
 }
-.orbit-container-hover{
-  .icon{
+.orbit-container-hover {
+  .icon {
     color: #000 !important;
   }
   background-color: white;
   scale: 1.1;
 }
-.hero-details{
+.hero-details {
   position: absolute;
   right: 1%;
   width: 340px;
-  background: rgba( 0, 0, 0, 0.1 );
-box-shadow: 0 0px 16px  #b3393b;
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 16px #b3393b;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
 }
-h2{
+h2 {
   color: rgb(220, 220, 220);
   font-size: 20px;
   line-height: 30px;
-
 }
-.car-description{
+.car-description {
   font-size: 14px !important;
   color: rgb(130, 130, 130) !important;
   font-weight: 500;
   line-height: 24px;
   margin-left: 0;
-  padding-left:0 ;
+  padding-left: 0;
+}
+.car-description:hover {
+  background: none;
 }
 .car-details {
   position: absolute;
   left: 5%;
-  top:10%;
+  top: 10%;
   width: 350px;
-  background: rgba( 0, 0, 0, 0.1 );
-box-shadow: 0 0px 16px  #b3393b;
-backdrop-filter: blur( 4px );
--webkit-backdrop-filter: blur( 4px );
-border-radius: 10px;
-border: 1px solid rgba( 255, 255, 255, 0.18 );
-opacity: 0;
-
+  background: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0px 16px #b3393b;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  opacity: 0;
 }
 
-.drag-note{
+.drag-note {
   font-size: 30px;
 }
