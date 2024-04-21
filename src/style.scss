@@ -243,15 +243,16 @@ h2 {
 }
 @media only screen and (min-width: 1600px) and (max-width: 2000px) {
   .cars-cointaner{
-    left: 83px;
+    left: 80px;
 
   }
   .line-vertical{
-    height: 216px;
+    height: 216px !important;
 
   }
   .line-horizontal{
-    width: 323px;
+    width: 340px !important;
+    top:7% !important
 
   }
   .hero-details {
