@@ -415,6 +415,8 @@ function changeCar(movement: number) {
   curIndex += movement;
   debugger;
   carModels[curIndex].model.visible = true;
+  chosenModel = carModels[curIndex];
+  setChosenCarData(chosenModel);
 
   gsap.fromTo(
     carModels[curIndex].model.position,
