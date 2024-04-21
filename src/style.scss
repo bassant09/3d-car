@@ -241,3 +241,20 @@ h2 {
 .drag-note {
   font-size: 30px;
 }
+@media only screen and (min-width: 1600px) and (max-width: 2000px) {
+  .cars-cointaner{
+    left: 83px;
+
+  }
+  .line-vertical{
+    height: 216px;
+
+  }
+  .line-horizontal{
+    width: 323px;
+
+  }
+  .hero-details {
+    right: 4%;
+  }
+}
